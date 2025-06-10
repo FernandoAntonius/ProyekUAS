@@ -33,7 +33,15 @@
 
 @include('layout.header')
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+@include('layout.contentSearch')
+
+@include('layout.cardLokasi')
+
+@include('layout.cardLokasiKota')
+
+@include('layout.promosi')
+
+@include('layout.footer')
 
 <body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
