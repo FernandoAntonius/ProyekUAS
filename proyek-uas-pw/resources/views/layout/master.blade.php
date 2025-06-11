@@ -33,11 +33,7 @@
 
 @include('layout.header')
 
-@include('layout.contentSearch')
-
-@include('layout.cardLokasi')
-
-@include('layout.cardLokasiKota')
+@yield('content')
 
 @include('layout.promosi')
 

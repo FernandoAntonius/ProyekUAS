@@ -16,7 +16,7 @@
         .footer-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 30px;
         }
 
         .footer-logo {
@@ -25,13 +25,17 @@
         }
 
         .logo-img {
-            width: 160px;
-            margin-bottom: 15px;
+            width: 130px;
+            margin: 30px;
+            margin-left: 250px;
+            margin-top: 60px;
         }
 
         .footer-about {
             flex: 1;
-            min-width: 200px;
+            min-width: 230px;
+            margin-left: 100px;
+            margin-top: 45px;
         }
 
         .footer-about h4 {
@@ -61,16 +65,20 @@
 <body>
     <footer class="footer">
         <div class="footer-container">
-            <!-- Logo Section -->
             <div class="footer-logo">
                 <img src="{{asset('assets/img/bird.png')}}" alt="Trapel" class="logo-img">
             </div>
-
-            <!-- About Section -->
+            <div class="footer-about">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Hubungi kami untuk pertanyaan, masukan, keluhan, dan komplimen.</li>
+                    <li><b class="bi bi-telephone"> No Telp:</b> +62 0997 367</li>
+                    <li><b class="bi bi-envelope"> Email:</b> trapel@gmail.com</li>
+                </ul>
+            </div>
             <div class="footer-about">
                 <h4>About Trapel</h4>
                 <ul>
-                    <li><a href="#">How to Book</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Careers</a></li>
@@ -78,7 +86,11 @@
                 </ul>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 30px; font-size: 16px;">
+            © 2025 Trapel. All rights reserved.
+        </div>
     </footer>
 </body>
+
 
 </html>

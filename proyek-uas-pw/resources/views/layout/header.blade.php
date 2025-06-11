@@ -53,6 +53,10 @@
             </div>
         </nav>
     </div>
+
+    <div class="container mt-5 pt-5">
+        <h2 class="text-center fw-bold text-uppercase mb-4">Trapel Around the World</h2>
+    </div>
 </body>
 
 </html>
