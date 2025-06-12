@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kartuasia', function (Blueprint $table) {
+        Schema::create('kotaasia', function (Blueprint $table) {
             $table->id();
-            $table->string('negara_asia');
-            $table->string('image_asia');
-            $table->string('deskripsi_asia');
+            $table->string('kota_asia');
+            $table->string('image_kota_asia');
+            $table->string('deskripsi_kota_asia');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kartuasia');
+        Schema::dropIfExists('kotaasia');
     }
 };

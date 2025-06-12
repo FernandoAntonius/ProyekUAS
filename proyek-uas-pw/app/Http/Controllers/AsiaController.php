@@ -9,13 +9,13 @@ class AsiaController extends Controller
 {
     public function index()
     {
-        $lists = DB::table('table_kartuasia')->get();
+        $lists = DB::table('kartuasia')->get();
         return view('negara.asia.cardAsia', ['lists' => $lists]);
     }
 
     public function detail($id)
     {
-        $list = DB::table('table_kartuasia')->where('id', $id)->first();
+        $list = DB::table('kartuasia')->where('id', $id)->first();
         if (!$list) {
             return redirect()->back()->with('error', 'Negara tidak ditemukan');
         }
@@ -31,7 +31,7 @@ class AsiaController extends Controller
                 'deskripsi_asia' => 'required|string',
             ]);
 
-            DB::table('table_kartuasia')->insert([
+            DB::table('kartuasia')->insert([
                 'negara_asia' => $request->input('negara_asia'),
                 'image_asia' => $request->input('image_asia'),
                 'deskripsi_asia' => $request->input('deskripsi_asia'),
@@ -47,7 +47,7 @@ class AsiaController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $list = DB::table('table_kartuasia')->where('id', $id)->first();
+        $list = DB::table('kartuasia')->where('id', $id)->first();
         if (!$list) {
             return redirect()->back()->with('error', 'Negara tidak ditemukan');
         }
@@ -59,7 +59,7 @@ class AsiaController extends Controller
                 'deskripsi_asia' => 'required|string',
             ]);
 
-            DB::table('table_kartuasia')->where('id', $id)->update([
+            DB::table('kartuasia')->where('id', $id)->update([
                 'negara_asia' => $request->input('negara_asia'),
                 'image_asia' => $request->input('image_asia'),
                 'deskripsi_asia' => $request->input('deskripsi_asia'),
@@ -75,7 +75,7 @@ class AsiaController extends Controller
     public function delete(Request $request, $id)
     {
         if ($request->isMethod('post')) {
-            $deleted = DB::table('table_kartuasia')->where('id', $id)->delete();
+            $deleted = DB::table('kartuasia')->where('id', $id)->delete();
             if ($deleted) {
                 return redirect()->route('trapel.list')->with('success', 'Negara berhasil dihapus');
             } else {
@@ -83,7 +83,7 @@ class AsiaController extends Controller
             }
         }
 
-        $list = DB::table('table_kartuasia')->where('id', $id)->first();
+        $list = DB::table('kartuasia')->where('id', $id)->first();
         if (!$list) {
             return redirect()->back()->with('error', 'Negara tidak ditemukan');
         }

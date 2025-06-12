@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center mb-4">
             <img src="{{ asset('assets/img/asia.png') }}" alt="Asia Logo" style="height: 40px; margin-right: 12px;">
             <h2 class="mb-0"><b>ASIA</b></h2>
-            <a href="{{ route('asia.create') }}" class="btn btn-primary ms-auto">Add New</a>
+            <a href="{{ route('asia.create') }}" class="btn btn-primary ms-auto">Tambah</a>
         </div>
         <div class="row g-4">
             @foreach ($asiaLists as $list)
@@ -17,7 +17,7 @@
                         </a>
                         <div class="card-overlay">
                             <h5 class="card-title">{{ $list->negara_asia }}</h5>
-                            <a href="{{ route('asia.delete', ['id' => $list->id]) }}" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{ route('asia.delete', ['id' => $list->id]) }}" class="btn btn-sm btn-danger">Hapus</a>
                             <a href="{{ route('asia.edit', ['id' => $list->id]) }}" class="btn btn-sm btn-warning ms-2">Edit</a>
                         </div>
                     </div>

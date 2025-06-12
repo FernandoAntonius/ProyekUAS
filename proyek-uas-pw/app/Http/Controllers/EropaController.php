@@ -9,13 +9,13 @@ class EropaController extends Controller
 {
     public function index()
     {
-        $lists = DB::table('table_kartueropa')->get();
+        $lists = DB::table('kartueropa')->get();
         return view('negara.eropa.carderopa', ['lists' => $lists]);
     }
 
     public function detail($id)
     {
-        $list = DB::table('table_kartueropa')->where('id', $id)->first();
+        $list = DB::table('kartueropa')->where('id', $id)->first();
         if (!$list) {
             return redirect()->back()->with('error', 'Negara tidak ditemukan');
         }
@@ -31,7 +31,7 @@ class EropaController extends Controller
                 'deskripsi_eropa' => 'required|string',
             ]);
 
-            DB::table('table_kartueropa')->insert([
+            DB::table('kartueropa')->insert([
                 'negara_eropa' => $request->input('negara_eropa'),
                 'image_eropa' => $request->input('image_eropa'),
                 'deskripsi_eropa' => $request->input('deskripsi_eropa'),
@@ -47,7 +47,7 @@ class EropaController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $list = DB::table('table_kartueropa')->where('id', $id)->first();
+        $list = DB::table('kartueropa')->where('id', $id)->first();
         if (!$list) {
             return redirect()->back()->with('error', 'Negara tidak ditemukan');
         }
@@ -59,7 +59,7 @@ class EropaController extends Controller
                 'deskripsi_eropa' => 'required|string',
             ]);
 
-            DB::table('table_kartueropa')->where('id', $id)->update([
+            DB::table('kartueropa')->where('id', $id)->update([
                 'negara_eropa' => $request->input('negara_eropa'),
                 'image_eropa' => $request->input('image_eropa'),
                 'deskripsi_eropa' => $request->input('deskripsi_eropa'),
@@ -75,7 +75,7 @@ class EropaController extends Controller
     public function delete(Request $request, $id)
     {
         if ($request->isMethod('post')) {
-            $deleted = DB::table('table_kartueropa')->where('id', $id)->delete();
+            $deleted = DB::table('kartueropa')->where('id', $id)->delete();
             if ($deleted) {
                 return redirect()->route('trapel.list')->with('success', 'Negara berhasil dihapus');
             } else {
@@ -83,7 +83,7 @@ class EropaController extends Controller
             }
         }
 
-        $list = DB::table('table_kartueropa')->where('id', $id)->first();
+        $list = DB::table('kartueropa')->where('id', $id)->first();
         if (!$list) {
             return redirect()->back()->with('error', 'Negara tidak ditemukan');
         }
