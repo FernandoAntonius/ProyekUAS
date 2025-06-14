@@ -13,7 +13,7 @@
                 <div class="col-md-4">
                     <div class="card destination-card position-relative">
                         <a href="{{ route('afrika.detail', ['id' => $list->id]) }}">
-                            <img src="{{ asset('assets/img/' . $list->image_afrika) }}" class="card-img-top destination-img"
+                            <img src="{{ asset($list->image_afrika) }}" class="card-img-top destination-img"
                                 alt="{{ $list->negara_afrika }}" />
                         </a>
                         <div class="card-overlay">

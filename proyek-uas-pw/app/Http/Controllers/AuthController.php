@@ -35,14 +35,7 @@ class AuthController extends Controller
 
 
         if(Auth::attempt($credentials)){
- 
-            $user = Auth::user();
-            if($user->level == 'admin'){
-                return redirect()->intended('admin');
-            } else if($user->level == 'user'){
-                return redirect()->intended('user');
-            }
-            return redirect()->intended('/');
+            return redirect()->intended('trapel');
         }
 
         //jika login gagal
@@ -61,7 +54,7 @@ class AuthController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
+                'username' => 'required',
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:8',
                 'level' => 'required|in:user,admin'
@@ -74,10 +67,10 @@ class AuthController extends Controller
         }
 
         $user = new User();
-        $user->name = $request->name;
+        $user->name = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->level = $user;
+        $user->level = $request->level;
         $user->save();
 
         return redirect('login');

@@ -1,29 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register - Creative Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Register - Trapel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Register Page" />
+    <meta name="author" content="ColorlibHQ" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+        integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous" />
+
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="{{ asset('/css/adminlte.css') }}" />
+
+    <!-- Custom Styles -->
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Open Sans", sans-serif;
-        }
-
         body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            width: 100%;
-            padding: 0 10px;
             position: relative;
-            background: #000;
+            background: #777777;
             overflow: hidden;
         }
 
@@ -32,139 +32,142 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url("hero-bg.jpg") center/cover no-repeat;
-            z-index: -1;
+            background: url('{{ asset('assets/img/background-register.jpg') }}') center/cover no-repeat;
+            z-index: 0;
             opacity: 0.8;
         }
 
-        .wrapper {
+        .register-box {
             width: 400px;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(9px);
             -webkit-backdrop-filter: blur(9px);
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .input-field {
-            position: relative;
-            border-bottom: 2px solid #ccc;
-            margin: 15px 0;
-        }
-
-        .input-field label {
+        .logo-background {
             position: absolute;
             top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 16px;
-            pointer-events: none;
-            transition: 0.15s ease;
-        }
-
-        .input-field input {
-            width: 100%;
-            height: 40px;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            color: #fff;
-        }
-
-        .input-field input:focus~label,
-        .input-field input:valid~label {
-            font-size: 0.8rem;
-            top: 10px;
-            transform: translateY(-120%);
-        }
-
-        button {
-            background: #fff;
-            color: #000;
-            font-weight: 600;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 3px;
-            font-size: 16px;
-            border: 2px solid transparent;
-            transition: 0.3s ease;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            color: #fff;
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .bottom-text {
-            text-align: center;
-            margin-top: 20px;
-            color: #fff;
-            font-size: 14px;
-        }
-
-        .bottom-text a {
-            color: #efefef;
-            text-decoration: none;
-        }
-
-        .bottom-text a:hover {
-            text-decoration: underline;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 1;
+            width: 150px;
+            height: auto;
         }
     </style>
 </head>
 
-<body>
+<body class="register-page">
+    <div class="register-box">
+        <div class="card " style="background-color:black; opacity: 0.8;">
+            <div class="card-header text-center">
+                <h2 class="mb-0" style="color: white"><br>Create Account</h2>
+            </div>
 
-    <div class="wrapper">
-        <h2>Create Account</h2>
-        <form onsubmit="return validateForm()">
-            <div class="input-field">
-                <input type="text" id="username" required>
-                <label for="username">Username</label>
+            <div class="card-body">
+                <form action="{{ url('register') }}" method="post">
+                    @csrf
+
+                    <div class="input-group mb-3">
+                        <div class="form-floating">
+                            <input id="registerUsername" name="username" type="text" class="form-control"
+                                placeholder="Username" value="{{ old('username') }}" required />
+                            <label for="registerUsername">Username</label>
+                        </div>
+                        <div class="input-group-text"><span class="bi bi-person"></span></div>
+                    </div>
+                    @error('username')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <div class="input-group mb-3">
+                        <div class="form-floating">
+                            <input id="registerEmail" type="email" name="email" class="form-control" placeholder="Email"
+                                value="{{ old('email') }}" required />
+                            <label for="registerEmail">Email</label>
+                        </div>
+                        <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+                    </div>
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <div class="input-group mb-3">
+                        <div class="form-floating">
+                            <input id="registerPassword" type="password" name="password" class="form-control"
+                                placeholder="Password" required />
+                            <label for="registerPassword">Password</label>
+                        </div>
+                        <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+                    </div>
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating">
+                            <select id="registerLevel" name="level" class="form-select" aria-label="User Level">
+                                <option value="user" {{ old('level') == 'user' ? 'selected' : '' }}>User</option>
+                                <option value="admin" {{ old('level') == 'admin' ? 'selected' : '' }}>Admin</option>
+                            </select>
+                            <label for="registerLevel">User Level</label>
+                        </div>
+                    </div>
+                    @error('level')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="mt-3 mb-0" style="color: white">
+                    Already have an account? <a href="{{ url('login') }}" class="fw-bold">Login</a>
+                </p>
             </div>
-            <div class="input-field">
-                <input type="email" id="email" required>
-                <label for="email">Email</label>
-            </div>
-            <div class="input-field">
-                <input type="password" id="password" required>
-                <label for="password">Password</label>
-            </div>
-            <button type="submit">Register</button>
-            <div class="bottom-text">
-                Already have an account? <a href="#">Login</a>
-            </div>
-        </form>
+        </div>
     </div>
 
-    <script>
-        function validateForm() {
-            const email = document.getElementById("email").value;
-            if (!email.includes("@")) {
-                alert("Please enter a valid email.");
-                return false;
-            }
-            return true;
-        }
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/adminlte.js') }}"></script>
 </body>
+
+<!--begin::Third Party Plugin(OverlayScrollbars)-->
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+    integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ=" crossorigin="anonymous"></script>
+<!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+<!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="{{ asset('js/adminlte.js') }}"></script>
+<!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+    const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (sidebarWrapper && typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== 'undefined') {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+</script>
 
 </html>

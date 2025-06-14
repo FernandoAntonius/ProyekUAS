@@ -6,8 +6,8 @@
     <title>Footer</title>
     <style>
         .footer {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
+            background-color: #22273a;
+            color: rgb(188, 188, 188);
             padding: 40px 20px;
             font-family: sans-serif;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -52,7 +52,7 @@
         }
 
         .footer-about ul li a {
-            color: #000000;
+            color: rgb(188, 188, 188);
             text-decoration: none;
         }
 
@@ -79,10 +79,8 @@
             <div class="footer-about">
                 <h4>About Trapel</h4>
                 <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="{{url('support')}}">Help Center</a></li>
+                    <li><a href="{{url('about-us')}}">About Us</a></li>
                 </ul>
             </div>
         </div>

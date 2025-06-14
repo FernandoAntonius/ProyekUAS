@@ -13,6 +13,13 @@ class NegaraController extends Controller
         $amerikaLists = DB::table('kartuamerika')->get();
         $afrikaLists = DB::table('kartuafrika')->get();
         $australiaLists = DB::table('kartuaustralia')->get();
-        return view('negara.negara', ['asiaLists' => $asiaLists, 'eropaLists' => $eropaLists, 'amerikaLists' => $amerikaLists, 'afrikaLists' => $afrikaLists, 'australiaLists' => $australiaLists]);
+        
+        return view('negara.negaraonly', [
+            'asiaLists' => $asiaLists,
+            'eropaLists' => $eropaLists,
+            'amerikaLists' => $amerikaLists, 
+            'afrikaLists' => $afrikaLists, 
+            'australiaLists' => $australiaLists
+        ]);
     }
 }

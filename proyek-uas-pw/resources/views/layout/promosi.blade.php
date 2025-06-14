@@ -1,5 +1,5 @@
 <body>
-    <section class="py-5 bg-white">
+    <section class="py-5 bg-none">
         <div class="container text-center">
             <h3 class="fw-bold mb-4">Kenapa pakai Trapel?</h3>
             <div class="row g-4">

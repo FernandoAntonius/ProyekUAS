@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="d-flex align-items-center mb-4">
-        <img src="{{ asset(path: 'assets/img/afrika.png') }}" alt="afrika Logo" style="height: 40px; margin-right: 12px;">
+        <img src="{{ asset(path: 'assets/img/red-panda.png') }}" alt="afrika Logo"
+            style="height: 40px; margin-right: 12px;">
         <h2 class="mb-0"><b>Kota-kota di Benua Asia</b></h2>
     </div>
     <div class="slider-container">
@@ -15,14 +16,14 @@
         <div class="slider-track">
             @foreach ($kotaAsiaLists as $list)
                 <div class="slider-item">
-                    <a href="/kotaasia/detail/{{ $list->id }}">
-                        <img src="{{ asset('assets/img/' . $list->image_kota_asia) }}" alt="{{ $list->kota_asia }}">
+                    <a href="/kota-asia/detail/{{ $list->id }}">
+                        <img src="{{ asset($list->image_kota_asia) }}" alt="{{ $list->kota_asia }}">
                     </a>
                     <div class="slider-desc">
                         {{ $list->kota_asia }}
                         <div class="mt-2">
-                            <a href="/kotaasia/delete/{{ $list->id }}" class="btn btn-sm btn-danger">Hapus</a>
-                            <a href="/kotaasia/edit/{{ $list->id }}" class="btn btn-sm btn-warning ms-2">Edit</a>
+                            <a href="/kota-asia/delete/{{ $list->id }}" class="btn btn-sm btn-danger">Hapus</a>
+                            <a href="/kota-asia/edit/{{ $list->id }}" class="btn btn-sm btn-warning ms-2">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -76,8 +77,8 @@
             border-radius: var(--radius);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            min-width: 240px;
-            max-width: 240px;
+            min-width: 320px;
+            max-width: 320px;
             scroll-snap-align: start;
             flex-shrink: 0;
             display: flex;
@@ -86,7 +87,7 @@
 
         .slider-item img {
             width: 100%;
-            height: 160px;
+            height: 200px;
             object-fit: cover;
         }
 

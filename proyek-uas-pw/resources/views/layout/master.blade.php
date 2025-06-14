@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE Laravel</title>
+    <title>Trapel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
         integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" />
 

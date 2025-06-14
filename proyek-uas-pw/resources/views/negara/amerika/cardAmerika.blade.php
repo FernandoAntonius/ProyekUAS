@@ -3,7 +3,8 @@
 @section('content')
     <div class="container py-5">
         <div class="d-flex align-items-center mb-4">
-            <img src="{{ asset('assets/img/amerika.png') }}" alt="amerika Logo" style="height: 40px; margin-right: 12px;">
+            <img src="{{ asset('assets/img/amerikabenua.png') }}" alt="amerika Logo"
+                style="height: 40px; margin-right: 12px;">
             <h2 class="mb-0"><b>AMERIKA</b></h2>
             <a href="{{ route('amerika.create') }}" class="btn btn-primary ms-auto">Tambah</a>
         </div>
@@ -12,7 +13,7 @@
                 <div class="col-md-4">
                     <div class="card destination-card position-relative">
                         <a href="{{ route('amerika.detail', ['id' => $list->id]) }}">
-                            <img src="{{ asset('assets/img/' . $list->image_amerika) }}" class="card-img-top destination-img"
+                            <img src="{{ asset($list->image_amerika) }}" class="card-img-top destination-img"
                                 alt="{{ $list->negara_amerika }}" />
                         </a>
                         <div class="card-overlay">

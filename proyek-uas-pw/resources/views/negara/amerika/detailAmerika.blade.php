@@ -8,8 +8,7 @@
         @endif
         <div class="d-flex">
             <div class="card me-4" style="width: 18rem;">
-                <img src="{{ asset('assets/img/' . $list->image_amerika) }}" class="card-img-top"
-                    alt="{{ $list->negara_amerika }}">
+                <img src="{{ asset($list->image_amerika) }}" class="card-img-top" alt="{{ $list->negara_amerika }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $list->negara_amerika }}</h5>
                     <p class="card-text">Link Image: {{ $list->image_amerika }}</p>
@@ -19,6 +18,8 @@
                 <p>{{ $list->deskripsi_amerika }}</p>
             </div>
         </div>
-        <a href="{{ url()->previous() }}" class="btn btn-primary mt-3">Kembali</a>
+        <div class="mt-3">
+            <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
+        </div>
     </div>
 @endsection

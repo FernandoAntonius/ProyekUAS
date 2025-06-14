@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('kotaamerika', function (Blueprint $table) {
             $table->id();
+            $table->string('kota_amerika');
+            $table->string('image_kota_amerika');
+            $table->string('deskripsi_kota_amerika');
             $table->timestamps();
         });
     }
